@@ -6,28 +6,28 @@ export enum StatusCode {
 
 class Result {
 
-  constructor(private statusCode: StatusCode, private data?: string) {}
+  constructor(private statusCode: StatusCode, private message?: string) {}
 
   toString() {
     return {
       statusCode: this.statusCode,
       body: JSON.stringify({
         code: StatusCode[this.statusCode],
-        data: this.data,
+        message: this.message,
       }),
     };
   }
 }
 
 export class ResultBuilder {
-  static success(data: string) {
-    const result = new Result(StatusCode.OK, data);
+  static success(message: string) {
+    const result = new Result(StatusCode.OK, message);
     console.log('[ResultBuilder] success', result.toString());
     return result.toString();
   }
 
-  static error(error: StatusCode, data?: string) {
-    const result = new Result(error, data);
+  static error(error: StatusCode, message?: string) {
+    const result = new Result(error, message);
     console.log('[ResultBuilder] error', result.toString());
     return result.toString();
   }

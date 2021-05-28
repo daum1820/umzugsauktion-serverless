@@ -58,7 +58,7 @@ describe('printHandler [GET]', () => {
           expect(result.statusCode).to.equal(StatusCode.OK);
 
           const body = JSON.parse(result.body);
-          expect(body.data).to.equal(expectedString);
+          expect(body.message).to.equal(expectedString);
         });
 
     } catch (err) {
@@ -77,7 +77,7 @@ describe('printHandler [GET]', () => {
           expect(result.statusCode).to.equal(StatusCode.OK);
 
           const body = JSON.parse(result.body);
-          expect(body.data).to.equal(expectedString);
+          expect(body.message).to.equal(expectedString);
         });
 
     } catch (err) {
@@ -95,7 +95,7 @@ describe('printHandler [GET]', () => {
           expect(result.statusCode).to.equal(StatusCode.OK);
 
           const body = JSON.parse(result.body);
-          const endsWith = body.data.endsWith(expectedEndString);
+          const endsWith = body.message.endsWith(expectedEndString);
           expect(endsWith).to.be.true;
         });
 
@@ -114,7 +114,7 @@ describe('printHandler [GET]', () => {
           expect(result.statusCode).to.equal(StatusCode.OK);
 
           const body = JSON.parse(result.body);
-          const startsWith = body.data.startsWith(expectedStartString);
+          const startsWith = body.message.startsWith(expectedStartString);
           expect(startsWith).to.be.true;
         });
 
