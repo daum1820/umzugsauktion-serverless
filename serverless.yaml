@@ -1,4 +1,4 @@
-service: umzugsauktion-serveless
+service: umzugsauktion-serverless
 provider:
   name: aws
   runtime: nodejs12.x

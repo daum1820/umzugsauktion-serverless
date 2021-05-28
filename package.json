@@ -1,5 +1,5 @@
 {
-  "name": "umzugsauktion-serveless",
+  "name": "umzugsauktion-serverless",
   "version": "1.0.0",
   "description": "This is task assigment for Umzugsauktion",
   "main": "index.js",
@@ -38,7 +38,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/daum1820/umzugsauktion-serveless.git"
+    "url": "git+https://github.com/daum1820/umzugsauktion-serverless.git"
   },
   "keywords": [
     "NodeJS",
@@ -49,7 +49,7 @@
   "author": "Felipe Herrerias",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/daum1820/umzugsauktion-serveless/issues"
+    "url": "https://github.com/daum1820/umzugsauktion-serverless/issues"
   },
-  "homepage": "https://github.com/daum1820/umzugsauktion-serveless#readme"
+  "homepage": "https://github.com/daum1820/umzugsauktion-serverless#readme"
 }
