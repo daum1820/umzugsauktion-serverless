@@ -2,6 +2,7 @@ import lambdaTester from 'lambda-tester';
 import { expect } from 'chai';
 
 import { printHandler } from '../src/app';
+import { StatusCode } from '../src/utils/result';
 
 describe('printHandler [GET]', () => {
   it('should not accept string as input', () => {
@@ -10,8 +11,9 @@ describe('printHandler [GET]', () => {
       return lambdaTester(printHandler)
         .event({ pathParameters: { x: "a", y: "b" } })
         .expectResult((result: any) => {
-          expect(result.statusCode).to.equal(400);
+          expect(result.statusCode).to.equal(StatusCode.BAD_REQUEST);
         });
+
     } catch (err) {
       console.log(err);
     }
@@ -23,7 +25,7 @@ describe('printHandler [GET]', () => {
       return lambdaTester(printHandler)
         .event({ pathParameters: { x: "10", y: "-1" } })
         .expectResult((result: any) => {
-          expect(result.statusCode).to.equal(400);
+          expect(result.statusCode).to.equal(StatusCode.BAD_REQUEST);
         });
 
     } catch (err) {
@@ -37,7 +39,7 @@ describe('printHandler [GET]', () => {
       return lambdaTester(printHandler)
         .event({ pathParameters: { x: "3", y: "5" } })
         .expectResult((result: any) => {
-          expect(result.statusCode).to.equal(200);
+          expect(result.statusCode).to.equal(StatusCode.OK);
         });
 
     } catch (err) {
@@ -53,7 +55,7 @@ describe('printHandler [GET]', () => {
       return lambdaTester(printHandler)
         .event({ pathParameters: { x: "53", y: "97" } })
         .expectResult((result: any) => {
-          expect(result.statusCode).to.equal(200);
+          expect(result.statusCode).to.equal(StatusCode.OK);
 
           const body = JSON.parse(result.body);
           expect(body.data).to.equal(expectedString);
@@ -72,7 +74,7 @@ describe('printHandler [GET]', () => {
       return lambdaTester(printHandler)
         .event({ pathParameters: { x: "101", y: "102" } })
         .expectResult((result: any) => {
-          expect(result.statusCode).to.equal(200);
+          expect(result.statusCode).to.equal(StatusCode.OK);
 
           const body = JSON.parse(result.body);
           expect(body.data).to.equal(expectedString);
@@ -90,7 +92,7 @@ describe('printHandler [GET]', () => {
       return lambdaTester(printHandler)
         .event({ pathParameters: { x: "9", y: "10" } })
         .expectResult((result: any) => {
-          expect(result.statusCode).to.equal(200);
+          expect(result.statusCode).to.equal(StatusCode.OK);
 
           const body = JSON.parse(result.body);
           const endsWith = body.data.endsWith(expectedEndString);
@@ -109,7 +111,7 @@ describe('printHandler [GET]', () => {
       return lambdaTester(printHandler)
         .event({ pathParameters: { x: "3", y: "5" } })
         .expectResult((result: any) => {
-          expect(result.statusCode).to.equal(200);
+          expect(result.statusCode).to.equal(StatusCode.OK);
 
           const body = JSON.parse(result.body);
           const startsWith = body.data.startsWith(expectedStartString);
