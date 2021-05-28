@@ -20,6 +20,7 @@ $ npm run deploy
 # or
 
 $ npm run deploy:dev
+```
 
 ## Usage
 There is already an available version for you to test it.
